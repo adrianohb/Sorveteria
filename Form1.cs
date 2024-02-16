@@ -3,21 +3,25 @@ using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
 using System.Drawing;
+using System.IO;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using Newtonsoft.Json;
 
 namespace Sorveteria
 {
     public partial class FormSorveteria : Form
     {
         // Cria uma lista onde serão adicionados os produtos
-        List<Produto> produtos = new List<Produto>();
+        List<Produto> produtos;
 
         public FormSorveteria()
         {
             InitializeComponent();
+
+            produtos = ProcessaJson.CarregaLista();
         }
 
         private void btnCadastrar_Click(object sender, EventArgs e)
@@ -32,8 +36,13 @@ namespace Sorveteria
             // Adicona o novo produto criado na lista
             produtos.Add(novoProduto);
 
+            // Armazena a lista no arquivo json
+            ProcessaJson.ArmazenaLista("./meuarquivojson.json", produtos);
+
             // Limpa as caixas de texto após inserir os dados na lista
             limparTela();
+
+
 
             lblQuantCadastros.Text = "Quantidade de produtos cadastrados: " + produtos.Count.ToString();
 
@@ -50,7 +59,15 @@ namespace Sorveteria
 
         private void MenuProduto_Click(object sender, EventArgs e)
         {
-            painelProdutos.Visible = true;
+            if (painelProdutos.Visible == false)
+            {
+                painelProdutos.Visible = true;
+            }
+            else if (painelProdutos.Visible == true)
+            {
+                painelProdutos.Visible = false;
+            }
+           
         }
 
         private void MenuPesquisar_Click(object sender, EventArgs e)
@@ -65,6 +82,5 @@ namespace Sorveteria
             txtIngredientes.Clear();
             numValor.Value = 0;
         }
-
     }
 }

@@ -8,10 +8,10 @@ namespace Sorveteria
 {
     internal class Produto
     {
-        public string nome { get; }
-        public string descricao { get; }
-        public string ingredientes { get; }
-        public decimal valor { get; }
+        public string nome { get; set; }
+        public string descricao { get; set; }
+        public string ingredientes { get; set; }
+        public decimal valor { get; set; }
 
         // Metodo construtor
         public Produto(string nome, string descricao, string ingredientes, decimal valor)
