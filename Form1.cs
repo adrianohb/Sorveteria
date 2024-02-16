@@ -32,10 +32,11 @@ namespace Sorveteria
             // Adicona o novo produto criado na lista
             produtos.Add(novoProduto);
 
-            txtNome.Text = "";
-            txtDescricao.Text = "";
-            txtIngredientes.Text = "";
-            numValor.Value = 0;
+            // Limpa as caixas de texto após inserir os dados na lista
+            limparTela();
+
+            lblQuantCadastros.Text = "Quantidade de produtos cadastrados: " + produtos.Count.ToString();
+
         }
 
         private void btnPesquisar_Click(object sender, EventArgs e)
@@ -45,6 +46,24 @@ namespace Sorveteria
                 Produto produto = produtos[(int)numPesquisar.Value];
                 txtVisor.Text = produto.ToString();
             }
+        }
+
+        private void MenuProduto_Click(object sender, EventArgs e)
+        {
+            painelProdutos.Visible = true;
+        }
+
+        private void MenuPesquisar_Click(object sender, EventArgs e)
+        {
+            painelPesquisar.Visible = true;
+        }
+
+        private void limparTela()
+        {
+            txtNome.Clear();
+            txtDescricao.Clear();
+            txtIngredientes.Clear();
+            numValor.Value = 0;
         }
 
     }

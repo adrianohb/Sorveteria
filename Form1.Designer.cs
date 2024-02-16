@@ -28,7 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.panel1 = new System.Windows.Forms.Panel();
+            this.painelProdutos = new System.Windows.Forms.Panel();
             this.btnCadastrar = new System.Windows.Forms.Button();
             this.label4 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
@@ -38,32 +38,39 @@
             this.txtIngredientes = new System.Windows.Forms.TextBox();
             this.txtDescricao = new System.Windows.Forms.TextBox();
             this.txtNome = new System.Windows.Forms.TextBox();
-            this.Panel2 = new System.Windows.Forms.Panel();
+            this.painelPesquisar = new System.Windows.Forms.Panel();
             this.txtVisor = new System.Windows.Forms.TextBox();
             this.label5 = new System.Windows.Forms.Label();
             this.numPesquisar = new System.Windows.Forms.NumericUpDown();
             this.btnPesquisar = new System.Windows.Forms.Button();
-            this.panel1.SuspendLayout();
+            this.menuStrip1 = new System.Windows.Forms.MenuStrip();
+            this.MenuProduto = new System.Windows.Forms.ToolStripMenuItem();
+            this.MenuPesquisar = new System.Windows.Forms.ToolStripMenuItem();
+            this.lblQuantCadastros = new System.Windows.Forms.Label();
+            this.painelProdutos.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.numValor)).BeginInit();
-            this.Panel2.SuspendLayout();
+            this.painelPesquisar.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.numPesquisar)).BeginInit();
+            this.menuStrip1.SuspendLayout();
             this.SuspendLayout();
             // 
-            // panel1
+            // painelProdutos
             // 
-            this.panel1.Controls.Add(this.btnCadastrar);
-            this.panel1.Controls.Add(this.label4);
-            this.panel1.Controls.Add(this.label3);
-            this.panel1.Controls.Add(this.label2);
-            this.panel1.Controls.Add(this.label1);
-            this.panel1.Controls.Add(this.numValor);
-            this.panel1.Controls.Add(this.txtIngredientes);
-            this.panel1.Controls.Add(this.txtDescricao);
-            this.panel1.Controls.Add(this.txtNome);
-            this.panel1.Location = new System.Drawing.Point(31, 12);
-            this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(275, 378);
-            this.panel1.TabIndex = 0;
+            this.painelProdutos.Controls.Add(this.lblQuantCadastros);
+            this.painelProdutos.Controls.Add(this.btnCadastrar);
+            this.painelProdutos.Controls.Add(this.label4);
+            this.painelProdutos.Controls.Add(this.label3);
+            this.painelProdutos.Controls.Add(this.label2);
+            this.painelProdutos.Controls.Add(this.label1);
+            this.painelProdutos.Controls.Add(this.numValor);
+            this.painelProdutos.Controls.Add(this.txtIngredientes);
+            this.painelProdutos.Controls.Add(this.txtDescricao);
+            this.painelProdutos.Controls.Add(this.txtNome);
+            this.painelProdutos.Location = new System.Drawing.Point(33, 33);
+            this.painelProdutos.Name = "painelProdutos";
+            this.painelProdutos.Size = new System.Drawing.Size(275, 411);
+            this.painelProdutos.TabIndex = 0;
+            this.painelProdutos.Visible = false;
             // 
             // btnCadastrar
             // 
@@ -160,16 +167,17 @@
             this.txtNome.Size = new System.Drawing.Size(229, 26);
             this.txtNome.TabIndex = 0;
             // 
-            // Panel2
+            // painelPesquisar
             // 
-            this.Panel2.Controls.Add(this.txtVisor);
-            this.Panel2.Controls.Add(this.label5);
-            this.Panel2.Controls.Add(this.numPesquisar);
-            this.Panel2.Controls.Add(this.btnPesquisar);
-            this.Panel2.Location = new System.Drawing.Point(331, 12);
-            this.Panel2.Name = "Panel2";
-            this.Panel2.Size = new System.Drawing.Size(275, 378);
-            this.Panel2.TabIndex = 9;
+            this.painelPesquisar.Controls.Add(this.txtVisor);
+            this.painelPesquisar.Controls.Add(this.label5);
+            this.painelPesquisar.Controls.Add(this.numPesquisar);
+            this.painelPesquisar.Controls.Add(this.btnPesquisar);
+            this.painelPesquisar.Location = new System.Drawing.Point(332, 33);
+            this.painelPesquisar.Name = "painelPesquisar";
+            this.painelPesquisar.Size = new System.Drawing.Size(275, 378);
+            this.painelPesquisar.TabIndex = 9;
+            this.painelPesquisar.Visible = false;
             // 
             // txtVisor
             // 
@@ -215,29 +223,68 @@
             this.btnPesquisar.UseVisualStyleBackColor = true;
             this.btnPesquisar.Click += new System.EventHandler(this.btnPesquisar_Click);
             // 
+            // menuStrip1
+            // 
+            this.menuStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.MenuProduto,
+            this.MenuPesquisar});
+            this.menuStrip1.Location = new System.Drawing.Point(0, 0);
+            this.menuStrip1.Name = "menuStrip1";
+            this.menuStrip1.Size = new System.Drawing.Size(631, 24);
+            this.menuStrip1.TabIndex = 10;
+            this.menuStrip1.Text = "menuStrip1";
+            // 
+            // MenuProduto
+            // 
+            this.MenuProduto.Name = "MenuProduto";
+            this.MenuProduto.Size = new System.Drawing.Size(62, 20);
+            this.MenuProduto.Text = "Produto";
+            this.MenuProduto.Click += new System.EventHandler(this.MenuProduto_Click);
+            // 
+            // MenuPesquisar
+            // 
+            this.MenuPesquisar.Name = "MenuPesquisar";
+            this.MenuPesquisar.Size = new System.Drawing.Size(69, 20);
+            this.MenuPesquisar.Text = "Pesquisar";
+            this.MenuPesquisar.Click += new System.EventHandler(this.MenuPesquisar_Click);
+            // 
+            // lblQuantCadastros
+            // 
+            this.lblQuantCadastros.AutoSize = true;
+            this.lblQuantCadastros.Font = new System.Drawing.Font("Arial Narrow", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblQuantCadastros.Location = new System.Drawing.Point(14, 381);
+            this.lblQuantCadastros.Name = "lblQuantCadastros";
+            this.lblQuantCadastros.Size = new System.Drawing.Size(246, 20);
+            this.lblQuantCadastros.TabIndex = 12;
+            this.lblQuantCadastros.Text = "Quantidade de produtos cadastrados: 0";
+            // 
             // FormSorveteria
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(631, 456);
-            this.Controls.Add(this.Panel2);
-            this.Controls.Add(this.panel1);
+            this.Controls.Add(this.painelPesquisar);
+            this.Controls.Add(this.painelProdutos);
+            this.Controls.Add(this.menuStrip1);
             this.Name = "FormSorveteria";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Sorveteria";
-            this.panel1.ResumeLayout(false);
-            this.panel1.PerformLayout();
+            this.painelProdutos.ResumeLayout(false);
+            this.painelProdutos.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.numValor)).EndInit();
-            this.Panel2.ResumeLayout(false);
-            this.Panel2.PerformLayout();
+            this.painelPesquisar.ResumeLayout(false);
+            this.painelPesquisar.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.numPesquisar)).EndInit();
+            this.menuStrip1.ResumeLayout(false);
+            this.menuStrip1.PerformLayout();
             this.ResumeLayout(false);
+            this.PerformLayout();
 
         }
 
         #endregion
 
-        private System.Windows.Forms.Panel panel1;
+        private System.Windows.Forms.Panel painelProdutos;
         private System.Windows.Forms.NumericUpDown numValor;
         private System.Windows.Forms.TextBox txtIngredientes;
         private System.Windows.Forms.TextBox txtDescricao;
@@ -247,11 +294,15 @@
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Button btnCadastrar;
-        private System.Windows.Forms.Panel Panel2;
+        private System.Windows.Forms.Panel painelPesquisar;
         private System.Windows.Forms.Label label5;
         private System.Windows.Forms.NumericUpDown numPesquisar;
         private System.Windows.Forms.Button btnPesquisar;
         private System.Windows.Forms.TextBox txtVisor;
+        private System.Windows.Forms.MenuStrip menuStrip1;
+        private System.Windows.Forms.ToolStripMenuItem MenuProduto;
+        private System.Windows.Forms.ToolStripMenuItem MenuPesquisar;
+        private System.Windows.Forms.Label lblQuantCadastros;
     }
 }
 
