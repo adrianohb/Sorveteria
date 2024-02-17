@@ -42,8 +42,6 @@ namespace Sorveteria
             // Limpa as caixas de texto após inserir os dados na lista
             limparTela();
 
-
-
             lblQuantCadastros.Text = "Quantidade de produtos cadastrados: " + produtos.Count.ToString();
 
         }
@@ -81,6 +79,34 @@ namespace Sorveteria
             txtDescricao.Clear();
             txtIngredientes.Clear();
             numValor.Value = 0;
+        }
+
+        private void MenuLista_Click(object sender, EventArgs e)
+        {
+            if (lstProdutos.Visible == false)
+            {
+                lstProdutos.Visible = true;
+            }
+            else if (lstProdutos.Visible = true)
+            { 
+                lstProdutos.Visible= false;
+            }
+
+            //lstProdutos.View = View.Details;
+            //lstProdutos.Columns.Add("Produto");
+            //lstProdutos.Columns.Add("Valor");
+
+            lstProdutos.Items.Clear();
+
+            // Executa uma vez para cada produto na lista
+            foreach (Produto produto in produtos) 
+            {
+                ListViewItem item = new ListViewItem(produto.nome);
+
+                item.SubItems.Add(produto.valor.ToString("c"));
+
+                lstProdutos.Items.Add(item);
+            }
         }
     }
 }
